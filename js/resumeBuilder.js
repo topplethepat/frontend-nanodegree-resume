@@ -19,14 +19,14 @@ This is empty on purpose! Your code to build the resume will go here.
  	"biopic": "http://lenorealford.com/gallery/IMG_3955.JPG"
  }
 
-  var contact={
+  var contacts={
   	"mobile": "415xxxxxxx",
   	"email": "lenore.alford@gmail.com",
   	"twitter": "@LenoreAudreyJ",
   	"github": "topplethepat.io",
   	"location": "San Francisco Bay Area"
   }
-
+bio.contacts=contacts
 	if (bio.welcomeMessage.length>0){
 	 var formattedwelcomeMsg=HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
 $("#header").append(formattedwelcomeMsg);
@@ -38,31 +38,31 @@ $("#header").append(formattedBiopic);
   $("#biopic").append(formattedBiopic);
 }
 
- if (contact.mobile.length>0){	
+ if (contacts.mobile.length>0){	
 	
-	var formattedMobile=HTMLmobile.replace("%data%", contact.mobile);
-	$("#topContacts").append(formattedMobile);
-	$("#footerContacts").append(formattedMobile);
+	var formattedMobile=HTMLmobile.replace("%data%", contacts.mobile);
+	$("#topcontacts").append(formattedMobile);
+	$("#footercontacts").append(formattedMobile);
 }	
-  if (contact.email.length>0){
-  	var formattedEmail=HTMLemail.replace("%data%", contact.email);
-	$("#topContacts").append(formattedEmail);
-	$("#footerContacts").append(formattedEmail);
+  if (contacts.email.length>0){
+  	var formattedEmail=HTMLemail.replace("%data%", contacts.email);
+	$("#topcontacts").append(formattedEmail);
+	$("#footercontacts").append(formattedEmail);
 }
-if (contact.twitter.length>0){
-	var formattedTwitter=HTMLtwitter.replace("%data%", contact.twitter);
-	$("#topContacts").append(formattedTwitter);
-	$("#footerContacts").append(formattedTwitter);
+if (contacts.twitter.length>0){
+	var formattedTwitter=HTMLtwitter.replace("%data%", contacts.twitter);
+	$("#topcontactss").append(formattedTwitter);
+	$("#footercontacts").append(formattedTwitter);
 }
-	if (contact.github.length>0){
-		var formattedGithub=HTMLgithub.replace("%data%", contact.github);
-	$("#topContacts").append(formattedGithub);
-	$("#footerContacts").append(formattedGithub);
+	if (contacts.github.length>0){
+		var formattedGithub=HTMLgithub.replace("%data%", contacts.github);
+	$("#topcontacts").append(formattedGithub);
+	$("#footercontacts").append(formattedGithub);
 }
-	if (contact.location.length>0){	
-		var formattedLocation=HTMLlocation.replace("%data%", contact.location);
-	$("#topContacts").append(formattedLocation);
-	$("#footerContacts").append(formattedLocation);
+	if (contacts.location.length>0){	
+		var formattedLocation=HTMLlocation.replace("%data%", contacts.location);
+	$("#topcontacts").append(formattedLocation);
+	$("#footercontacts").append(formattedLocation);
 }
 
  if (bio.skills.length>0){
@@ -105,7 +105,6 @@ else {
 	  "url": "http://www.utexas.edu"
 	 } 
 ],
-    
 	"onlineClasses": [{
 		"title": "Front-End Nanodegree",
 		"school": "Udacity",
@@ -126,9 +125,12 @@ education.display=function (){
 	}
     for(item in education.onlineClasses){
      $("#education").append(HTMLonlineClasses);
-     var formattedonlineTitle=HTMLonlineTitle.replace("#", education.onlineClasses[item].url);
+     var formattedonlineTitle=HTMLonlineURL.replace("#", education.onlineClasses[item].url);
      var formattedonlineTitle=HTMLonlineTitle.replace("%data%", education.onlineClasses[item].title);
-     $(".education-entry").append(formattedonlineTitle);
+     var formattedonlineDates=HTMLonlineDates.replace("%data%", education.onlineClasses[item].dates);
+     //$(".education-entry:last").append(formattedonlineURL);
+     $(".education-entry:last").append(formattedonlineTitle);
+     $(".education-entry:last").append(formattedonlineDates);
     }
 }
 education.display();
@@ -208,11 +210,9 @@ projects.display=function (){
 }
 projects.display();
 
-//map.display=function(){
 
-//$("#mapDiv").append(googleMap);
-//}
-//map.display();
+$("#mapDiv").append(googleMap);
+
 
 
 //for putting info into the console re how many clicks on which part of resume
