@@ -12,7 +12,7 @@ This is empty on purpose! Your code to build the resume will go here.
  
 
   var bio={
- 	"name": "Lenore",
+ 	"name": "Lenore Alford",
  	"role" : "Front-End Developer",
  	"skills" : ["virtuoso typist", "monkey behaviorist", "amazing coder", "stellar mountain biker"],
  	"welcomeMessage": "West Coaster musician turned coder: here's what I can do.",
@@ -51,7 +51,7 @@ $("#header").append(formattedBiopic);
 }
 if (contacts.twitter.length>0){
 	var formattedTwitter=HTMLtwitter.replace("%data%", contacts.twitter);
-	$("#topcontactss").append(formattedTwitter);
+	$("#topcontacts").append(formattedTwitter);
 	$("#footercontacts").append(formattedTwitter);
 }
 	if (contacts.github.length>0){
@@ -134,26 +134,27 @@ education.display=function (){
     }
 }
 education.display();
+
 var work = {
 	"jobs": [{
 		"employer": "St Johns Episcopal Church",
 		"title": "Music Director",
 		"location": "Ross, CA",
-		"dates_worked": "2009 to present",
+		"dates": "2009 to present",
 		"url": "http://www.stjohnsross.org",
 		"description": ["Ran robot", "wrote Southern-style emails", "dazzled on the keyboard"]
 	}, {
 		"employer": "College of Marin Emeritus College",
 		"title": "Instructor",
 		"location": "Kentfield, CA",
-		"dates_worked": "Jan through June 2012",
+		"dates": "Jan through June 2012",
 		"url": "http://www.lenorealford.com",
 		"description": "Developed and taught two music history courses"	
 	}, {
 	    "employer": "Legion of Honor Museum",
 	    "title": "Organ recitalist",
 	    "location": "San Francisco, CA",
-	    "dates_worked": "July 2015",
+	    "dates": "July 2015",
 	    "url": "http://www.legionofhonor.org",
 	    "description": "Played two organ recitals on the historic Skinner organ"
 	},
@@ -161,13 +162,13 @@ var work = {
 	    "employer": "Université de Montréal",
 	    "title": "Collaborative pianist",
 	    "location": "Montreal, Canada",
-	    "dates_worked": "1999-2005",
+	    "dates": "1999-2005",
 	    "url": "http://www.umontreal.ca",
 	    "description": "Class collaborative pianist for undergraduate flute students"
 	}
 	]
 }
-
+work.display=function (){
 for (item in work.jobs){
 	$("#workExperience").append(HTMLworkStart);
 	var formattedEmployer=HTMLworkEmployer.replace("#", work.jobs[item].url);
@@ -176,12 +177,14 @@ for (item in work.jobs){
 	$(".work-entry:last").append(formattedEmployer + endAnchor);
 	var formattedWorkLocation=HTMLworkLocation.replace("%data%",work.jobs[item].location);
 	$(".work-entry:last").append(formattedWorkLocation);
-    var formattedWorkdates=HTMLworkDates.replace("%data%",work.jobs[item].dates_worked);
+    var formattedWorkdates=HTMLworkDates.replace("%data%",work.jobs[item].dates);
     $(".work-entry:last").append(formattedWorkdates);
     var formattedWorkDescription=HTMLworkDescription.replace("%data%",work.jobs[item].description);
     $(".work-entry:last").append(formattedWorkDescription);
     
 }
+}
+work.display();
 
 var projects = {
 	"projects": [
@@ -205,7 +208,11 @@ projects.display=function (){
 	$("#projects").append(HTMLprojectStart);
 		var formattedTitle=HTMLprojectTitle.replace("#", projects.projects[project].url);
 		var formattedTitle=HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		var formattedprojectDescription=HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		var formattedprojectImage=HTMLprojectImage.replace("%data%", projects.projects[project].images);
 		$(".project-entry:last").append(formattedTitle);
+		$(".project-entry:last").append(formattedprojectDescription);
+		$(".project-entry:last").append(formattedprojectImage);
 	}
 }
 projects.display();
