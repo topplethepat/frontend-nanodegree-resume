@@ -1,32 +1,29 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
- 
 
- var formattedName=HTMLheaderName.replace("%data%","Lenore Alford");
+var formattedName=HTMLheaderName.replace("%data%","Lenore Alford");
  var formattedRole=HTMLheaderRole.replace("%data%","Front-End Developer");
  
  $("#header").prepend(formattedRole);
  $("#header").prepend(formattedName);
  $("#main").append(internationalizeButton);
- 
 
   var bio={
  	"name": "Lenore Alford",
  	"role" : "Front-End Developer",
- 	"skills" : ["virtuoso typist", "monkey behaviorist", "amazing coder", "stellar mountain biker"],
- 	"welcomeMessage": "West Coaster musician turned coder: here's what I can do.",
- 	"biopic": "http://lenorealford.com/gallery/IMG_3955.JPG"
- }
-
-  var contacts={
-  	"mobile": "415xxxxxxx",
+ 	"contacts":{
+ 		"mobile": "415xxxxxxx",
   	"email": "lenore.alford@gmail.com",
   	"twitter": "@LenoreAudreyJ",
   	"github": "topplethepat.io",
-  	"location": "San Francisco Bay Area"
-  }
-bio.contacts=contacts
+  	"location": "San Francisco Bay Area",
+ 	},
+ 	"skills" : ["HTML", "CSS", "Javascript", "JQuery"],
+ 	"welcomeMessage": "West Coaster musician turned coder: here's what I can do.",
+ 	"biopic": "http://lenorealford.com/gallery/IMG_3955.JPG"
+ }
+bio.display=function (){
 	if (bio.welcomeMessage.length>0){
 	 var formattedwelcomeMsg=HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
 $("#header").append(formattedwelcomeMsg);
@@ -38,29 +35,29 @@ $("#header").append(formattedBiopic);
   $("#biopic").append(formattedBiopic);
 }
 
- if (contacts.mobile.length>0){	
+ if (bio.contacts.mobile.length>0){	
 	
-	var formattedMobile=HTMLmobile.replace("%data%", contacts.mobile);
+	var formattedMobile=HTMLmobile.replace("%data%", bio.contacts.mobile);
 	$("#topcontacts").append(formattedMobile);
 	$("#footercontacts").append(formattedMobile);
 }	
-  if (contacts.email.length>0){
-  	var formattedEmail=HTMLemail.replace("%data%", contacts.email);
+  if (bio.contacts.email.length>0){
+  	var formattedEmail=HTMLemail.replace("%data%", bio.contacts.email);
 	$("#topcontacts").append(formattedEmail);
 	$("#footercontacts").append(formattedEmail);
 }
-if (contacts.twitter.length>0){
-	var formattedTwitter=HTMLtwitter.replace("%data%", contacts.twitter);
+if (bio.contacts.twitter.length>0){
+	var formattedTwitter=HTMLtwitter.replace("%data%", bio.contacts.twitter);
 	$("#topcontacts").append(formattedTwitter);
 	$("#footercontacts").append(formattedTwitter);
 }
-	if (contacts.github.length>0){
-		var formattedGithub=HTMLgithub.replace("%data%", contacts.github);
+	if (bio.contacts.github.length>0){
+		var formattedGithub=HTMLgithub.replace("%data%", bio.contacts.github);
 	$("#topcontacts").append(formattedGithub);
 	$("#footercontacts").append(formattedGithub);
 }
-	if (contacts.location.length>0){	
-		var formattedLocation=HTMLlocation.replace("%data%", contacts.location);
+	if (bio.contacts.location.length>0){	
+		var formattedLocation=HTMLlocation.replace("%data%", bio.contacts.location);
 	$("#topcontacts").append(formattedLocation);
 	$("#footercontacts").append(formattedLocation);
 }
@@ -84,7 +81,8 @@ if (contacts.twitter.length>0){
 else {
 	$("#main").append(0);
 }
-
+}
+bio.display();
  var education= {
 	"schools": [{
 		//"name": "UBC",
@@ -98,7 +96,7 @@ else {
 		//"major": ["Piano"]
 	//},
 	 "name": "The University of Texas at Austin",
-	  "city": "Austin, Texas",
+	  "location": "Austin, Texas",
 	  "degree": "Doctor of Musical Arts",
 	  "major": "Organ performance",
 	  "dates": "2005-2008",
@@ -118,17 +116,21 @@ education.display=function (){
 		var formattedSchoolName=HTMLschoolName.replace("#", education.schools[item].url);
 		var formattedSchoolName=HTMLschoolName.replace("%data%", education.schools[item].name);
 		var formattedDegree=HTMLschoolDegree.replace("%data%", education.schools[item].degree);
+		var formattedSchoolLocation=HTMLschoolLocation.replace("%data%", education.schools[item].location);
 		$(".education-entry:last").append(formattedSchoolName);
 		$(".education-entry:last").append(formattedDegree);
+		$(".education-entry:last").append(formattedSchoolLocation);
 		var formattedschoolDates=HTMLschoolDates.replace("%data%", education.schools[item].dates);
-		$(".date-text").append(formattedschoolDates);
+		$(".education-entry:last").append(formattedschoolDates);
 	}
-    for(item in education.onlineClasses){
-     $("#education").append(HTMLonlineClasses);
+    for(item in education.onlineClasses){	
+    $("#education").append(HTMLonlineClasses);
+   	 $("#education").append(HTMLschoolStart);
      var formattedonlineTitle=HTMLonlineURL.replace("#", education.onlineClasses[item].url);
      var formattedonlineTitle=HTMLonlineTitle.replace("%data%", education.onlineClasses[item].title);
      var formattedonlineDates=HTMLonlineDates.replace("%data%", education.onlineClasses[item].dates);
-     //$(".education-entry:last").append(formattedonlineURL);
+
+
      $(".education-entry:last").append(formattedonlineTitle);
      $(".education-entry:last").append(formattedonlineDates);
     }
@@ -142,7 +144,7 @@ var work = {
 		"location": "Ross, CA",
 		"dates": "2009 to present",
 		"url": "http://www.stjohnsross.org",
-		"description": ["Ran robot", "wrote Southern-style emails", "dazzled on the keyboard"]
+		"description": ["Founded choir school for children", "organist and choral conductor", "oversaw budget & fundraisers"]
 	}, {
 		"employer": "College of Marin Emeritus College",
 		"title": "Instructor",

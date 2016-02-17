@@ -61,7 +61,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     display by looking at the id or at what's written between the <h2> tags.
     -->
     <div id="header" class="center-content clear-fix">
-      <ul id="topContacts" class="flex-box"></ul>
+      <ul id="topcontacts" class="flex-box"></ul>
     </div>
     <div style="clear: both;"></div>
     <div id="workExperience" class="gray">
@@ -78,7 +78,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     </div>
     <div id="lets-connect" class="gray">
       <h2 class="orange center-text">Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
+        <ul id="footercontacts" class="flex-box">
       </ul>
     </div>
   </div>
@@ -115,8 +115,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
 
     if(document.getElementsByClassName('flex-item').length === 0) {
-      //document.getElementById('topContacts').style.display = 'none';
-      document.getElementById('topContacts').style['background-color'] = 'black';
+      //document.getElementById('topcontactss').style.display = 'none';
+      document.getElementById('topcontacts').style['background-color'] = 'black';
     }
     if(document.getElementsByTagName('h1').length === 0) {
       //document.getElementById('header').style.display = 'none';
@@ -134,7 +134,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('lets-connect').style['background-color'] = 'black';
     }
-    if(document.getElementById('map') === null) {
+    if(document.getElementById('mapDiv') === null) {
       document.getElementById('mapDiv').style['background-color'] = 'black';
     }
   </script>
