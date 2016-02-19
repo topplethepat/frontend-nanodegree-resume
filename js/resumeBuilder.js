@@ -2,12 +2,8 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
-var formattedName=HTMLheaderName.replace("%data%","Lenore Alford");
- var formattedRole=HTMLheaderRole.replace("%data%","Front-End Developer");
+
  
- $("#header").prepend(formattedRole);
- $("#header").prepend(formattedName);
- $("#main").append(internationalizeButton);
 
   var bio={
  	"name": "Lenore Alford",
@@ -24,6 +20,13 @@ var formattedName=HTMLheaderName.replace("%data%","Lenore Alford");
  	"biopic": "http://lenorealford.com/gallery/IMG_3955.JPG"
  }
 bio.display=function (){
+
+	var formattedName=HTMLheaderName.replace("%data%", bio.name);
+ var formattedRole=HTMLheaderRole.replace("%data%", bio.role);
+ 
+ $("#header").prepend(formattedRole);
+ $("#header").prepend(formattedName);
+
 	if (bio.welcomeMessage.length>0){
 	 var formattedwelcomeMsg=HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
 $("#header").append(formattedwelcomeMsg);
@@ -223,6 +226,8 @@ projects.display=function (){
 	}
 }
 projects.display();
+
+$("#main").append(internationalizeButton);
 
 
 $("#mapDiv").append(googleMap);
