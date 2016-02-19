@@ -19,7 +19,7 @@ var formattedName=HTMLheaderName.replace("%data%","Lenore Alford");
   	"github": "topplethepat.io",
   	"location": "San Francisco Bay Area",
  	},
- 	"skills" : ["HTML", "CSS", "Javascript", "JQuery"],
+ 	"skills" : ["HTML", "CSS", "Javascript", "jQuery"],
  	"welcomeMessage": "West Coaster musician turned coder: here's what I can do.",
  	"biopic": "http://lenorealford.com/gallery/IMG_3955.JPG"
  }
@@ -98,15 +98,15 @@ bio.display();
 	 "name": "The University of Texas at Austin",
 	  "location": "Austin, Texas",
 	  "degree": "Doctor of Musical Arts",
-	  "major": "Organ performance",
+	  "majors": "Organ performance",
 	  "dates": "2005-2008",
 	  "url": "http://www.utexas.edu"
 	 } 
 ],
 	"onlineClasses": [{
-		"title": "Front-End Nanodegree",
-		"school": "Udacity",
-		"dates": "Jan-July 2016",
+		"title": "Udacity",
+		"school": "Front-End Nanodegree",
+		"dates": "July 2016",
 		"url": "http://udacity.com"
 	}]
 }
@@ -114,7 +114,7 @@ education.display=function (){
 	for(item in education.schools){ 
 	$("#education").append(HTMLschoolStart);
 		var formattedSchoolName=HTMLschoolName.replace("#", education.schools[item].url);
-		var formattedSchoolName=HTMLschoolName.replace("%data%", education.schools[item].name);
+		var formattedSchoolName=formattedSchoolName.replace("%data%", education.schools[item].name);
 		var formattedDegree=HTMLschoolDegree.replace("%data%", education.schools[item].degree);
 		var formattedSchoolLocation=HTMLschoolLocation.replace("%data%", education.schools[item].location);
 		$(".education-entry:last").append(formattedSchoolName);
@@ -125,14 +125,19 @@ education.display=function (){
 	}
     for(item in education.onlineClasses){	
     $("#education").append(HTMLonlineClasses);
-   	 $("#education").append(HTMLschoolStart);
-     var formattedonlineTitle=HTMLonlineURL.replace("#", education.onlineClasses[item].url);
-     var formattedonlineTitle=HTMLonlineTitle.replace("%data%", education.onlineClasses[item].title);
+   	 $("#education").append(HTMLschoolStart);	 
+	  
+   	  var formattedonlineTitle=HTMLonlineTitle.replace("#", education.onlineClasses[item].url);
+      var formattedonlineTitle=formattedonlineTitle.replace("%data%", education.onlineClasses[item].title);
+     var formattedonlineSchool=HTMLonlineSchool.replace("%data%", education.onlineClasses[item].school);
      var formattedonlineDates=HTMLonlineDates.replace("%data%", education.onlineClasses[item].dates);
-
-
+     //var formattedonlineSchoolLink=HTMLonlineURL.replace("#", education.onlineClasses[item].url);
+     //var formattedonlineSchoolLink=formattedonlineSchoolLink.replace("%data%", education.onlineClasses[item].school);
      $(".education-entry:last").append(formattedonlineTitle);
+     $(".education-entry:last").append(formattedonlineSchool);
+     
      $(".education-entry:last").append(formattedonlineDates);
+
     }
 }
 education.display();
@@ -144,7 +149,7 @@ var work = {
 		"location": "Ross, CA",
 		"dates": "2009 to present",
 		"url": "http://www.stjohnsross.org",
-		"description": ["Founded choir school for children", "organist and choral conductor", "oversaw budget & fundraisers"]
+		"description": ["Founded choir school for children", "organist and choral conductor", "created full-time position from half-time"]
 	}, {
 		"employer": "College of Marin Emeritus College",
 		"title": "Instructor",
@@ -194,8 +199,8 @@ var projects = {
 	   "title": "Responsive website: Lenore Alford's wedding music page",
 	   "dates": "January 1 to January 18, 2016",
 	   "description": "Created website to showcase piano and organ wedding music",
-	   "images": "http://placehold.it/350x150",
-	   "url": "http://topplethepat.github.io/Project1/Project1.html"	
+	   "url": "http://topplethepat.github.io/Project1/Project1.html",
+	   "images": "http://placehold.it/350x150"	
     },
     {
     	"title": "placeholder",
@@ -209,7 +214,7 @@ projects.display=function (){
 	for(project in projects.projects){ 
 	$("#projects").append(HTMLprojectStart);
 		var formattedTitle=HTMLprojectTitle.replace("#", projects.projects[project].url);
-		var formattedTitle=HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		var formattedTitle=formattedTitle.replace("%data%", projects.projects[project].title);
 		var formattedprojectDescription=HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 		var formattedprojectImage=HTMLprojectImage.replace("%data%", projects.projects[project].images);
 		$(".project-entry:last").append(formattedTitle);
