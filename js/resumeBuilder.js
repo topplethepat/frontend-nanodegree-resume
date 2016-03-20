@@ -7,7 +7,7 @@ var bio = {
     "name": "Lenore Alford",
     "role": "Front-End Developer",
     "contacts": {
-        "mobile": "415xxxxxxx",
+        "mobile": "415-259-7224",
         "email": "lenore.alford@gmail.com",
         "twitter": "@LenoreAudreyJ",
         "github": "topplethepat.io",
@@ -200,12 +200,13 @@ var projects = {
         "dates": "January 1 to January 18, 2016",
         "description": "Created website to showcase piano and organ wedding music",
         "url": "http://topplethepat.github.io/Project1/Project1.html",
-        "images": "http://placehold.it/350x150"
+        "images": "images/wedding-page.jpeg"
     }, {
-        "title": "placeholder",
+        "title": "Arcade game clone",
         "dates": "2016",
-        "description": "placeholder",
-        "images": "http://placehold.it/350x150"
+        "description": "Used object oriented javascript to make a frogger-like game",
+        "url": "http://topplethepat.github.io/frontend-nanodegree-arcade-game-master/",
+        "images": "images/Game-newscreenshot.jpeg"
     }]
 };
 projects.display = function() {
