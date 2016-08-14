@@ -13,7 +13,7 @@ var bio = {
         "github": "topplethepat.io",
         "location": "San Francisco Bay Area",
     },
-    "skills": ["HTML", "CSS", "Javascript", "jQuery"],
+    "skills": ["HTML5", "CSS3", "JavaScript", "jQuery", "KnockoutJS", "Web API"],
     "welcomeMessage": "Best Coaster musician turned coder: here's what I can do.",
     "biopic": "http://lenorealford.com/gallery/IMG_3955.JPG"
 };
